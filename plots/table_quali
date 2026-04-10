@@ -1,0 +1,9 @@
+\begin{tabular}{llr}
+\toprule
+ & origin & frequency \\
+\midrule
+0 & usa & 249 \\
+1 & japan & 79 \\
+2 & europe & 70 \\
+\bottomrule
+\end{tabular}
