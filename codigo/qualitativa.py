@@ -8,7 +8,6 @@ table_quali = folder_out + "table_quali"
 
 df = pd.read_csv(file_in)
 
-#print(df.dtypes)
 
 #Treating the qualitative data "origin", which has the origin of the studied penguins
 origin = df['origin'].value_counts().reset_index()
