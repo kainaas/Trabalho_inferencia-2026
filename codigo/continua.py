@@ -44,3 +44,6 @@ print(f"desvio-padrao: {standard_deviation}")
 CV = standard_deviation/mean
 print(f"Coeficiente de variacao: {CV}")
 
+#d) data is slightly assymetrical to the right mean > Me > Mo
+
+#e)
