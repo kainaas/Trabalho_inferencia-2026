@@ -1,0 +1,11 @@
+\begin{tabular}{lrrr}
+\toprule
+ & cylinders & frequency & cumulative frequency \\
+\midrule
+0 & 3 & 4 & 4 \\
+1 & 4 & 204 & 208 \\
+2 & 5 & 3 & 211 \\
+3 & 6 & 84 & 295 \\
+4 & 8 & 103 & 398 \\
+\bottomrule
+\end{tabular}

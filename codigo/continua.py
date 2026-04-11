@@ -83,7 +83,7 @@ freq_cumsum = freqs_table['frequency'].cumsum().reset_index()
 freq_cumsum.columns = ['index', 'cumulative frequency']
 
 freqs_table = pd.merge(freqs_table, freq_cumsum['cumulative frequency'], left_index = True, right_index = True)
-freqs_table.to_latex(table_cont)
+freqs_table.to_latex(table_cont) #TODO: first index needs to be deleted
 
 
 #f)%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -125,7 +125,7 @@ print('==========================================')
 #Plots for the continuous variable
 fig, axs = plt.subplots(1, 2, figsize=(12, 5))
 
-fig.suptitle('Aceleração dos carros produzido (mph)', fontsize=14)
+fig.suptitle(r'Aceleração dos carros produzido ($mph^2$)', fontsize=14)
 
 #histogram
 axs[0].hist(continua, bins=k)
