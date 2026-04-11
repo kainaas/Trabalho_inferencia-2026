@@ -18,7 +18,8 @@ print(origin)
 #Plots for the qualitative variable
 fig, axs = plt.subplots(1, 2, figsize=(12, 5))
 
-fig.suptitle('Distribuição das Espécies de Pinguins', fontsize=14)
+#TODO: change the name of the suptitle
+fig.suptitle('Origem dos carros produzidos', fontsize=14)
 
 # Pie chart
 axs[0].pie(origin['frequency'], labels=origin['origin'], autopct='%1.1f%%')
@@ -43,10 +44,3 @@ fig.savefig(plot_quali)
 #plt.show()
 
 origin.to_latex(table_quali)
-
-
-
-
-
-#prints a lot of information (like mean, min, max, percentile...)
-#print(df.describe())
