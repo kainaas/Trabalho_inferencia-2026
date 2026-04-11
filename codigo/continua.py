@@ -134,4 +134,6 @@ axs[0].set_title('Histograma')
 #boxplot
 axs[1].boxplot(continua)
 axs[1].set_title('Boxplot')
+
+fig.savefig(plot_cont)
 plt.show()
