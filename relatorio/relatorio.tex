@@ -32,7 +32,7 @@
     Como citado anteriormente, a variável "local de produção" possui três valores únicos diferente, sendo eles "usa", "japan" e "europe". Ao organizar os dados, a seguinte tabela foi montada:
     \begin{table}[H]
         \centering
-        \begin{tabular}{ccccc}
+        \begin{tabular}{c|cc|cc}
             \toprule
             Origem & Frequência & Frequência acumulada & Frequência relativa & Frequência relativa acumulada \\
             \midrule
@@ -54,9 +54,107 @@
         \label{fig:graficos_quali}
     \end{figure}
 
-    Fica claro a discrepância entre a produção de carros nos EUA e nos outros dois locais (pelo menos para os modelos estudados), com o país americano tendo $62,6\%$ da produção. Em relação as outras origens dos carros do estudo, elas possuem frequências similares, algo peculiar, visto que a Europa é um continente e o Japão um país.
+    Fica claro a discrepância entre a produção de carros nos EUA e nos outros dois locais (pelo menos para os modelos estudados), com o país americano tendo $62.6\%$ da produção. Em relação as outras origens dos carros do estudo, elas possuem frequências similares, algo peculiar, visto que a Europa é um continente e o Japão um país.
 
     \section{Variável contínua}
+    Para a variável contínua, foi escolhida a aceleração dos carros, medidas em milhas por segundo ao quadrado ($mph^2$). Essa medida é obtida fazendo o carro sair do repouso e chegar até $60mph$ e cronometrando o tempo gasto.
+    
+    Ao observar o rol dessa variável, pode-se encontrar valores entre aproximadamente $5mph^2$ e $25mph^2$. Além disso, obtemos as seguintes estimativas para as medidas de tendência central, sumarizadas na \autoref{table:tendencia_cental_continua}:
+    \begin{table}[htbp]
+        \centering
+        \begin{tabular}{cc}
+            \toprule
+            Medida de tendência central & Estimativa ($mph^2$)\\
+            \midrule
+            Média ($\hat{\mu}$)         & $15.568$ \\
+            Mediana ($\hat{Me}$)        & $15.500$ \\
+            Moda ($\hat{Mo}$)           & $15.000$ \\
+            \bottomrule
+        \end{tabular}
+        \caption{Medidas de tendência central da variável contínua}
+        \label{table:tendencia_cental_continua}
+    \end{table}
+
+    Como temos que $\hat{\mu} > \hat{Me} > \hat{Mo}$, verificamos uma assimetria à direita, ou seja, a cauda do lado direito é mais alongada. Note que essa assimetria é bem leve, dado que a diferença entre média e mediana é da casa de $1\cdot 10^{-1}$ e a moda também não está muito longe
+
+    Em relação aos quartis, obtemos os seguinte valores: $Q_1 = 13.825$, $Q_2 = 15.500$, $Q_3 = 17.175$. logo, metade das acelerações se encontram no intervalo $[13.825, 17.175]$. Os carros fora desse intervalo ou possuem uma aceleração relativamente alta, ou baixa.
+
+    Com relação às medidas de dispersão, temos a \autoref{table:dispersao_continua}.
+    \begin{table}[htbp]
+        \centering
+        \begin{tabular}{cc}
+            \toprule
+            Medidada de dispersão                   & Estimativa ($mph^2$)\\
+            \midrule
+            Amplitude ($\hat{A}$)                   & $16.800$ \\
+            Amplitude interquartílica ($\hat{d_Q}$) & $3.350$ \\
+            Desvio-padrão ($\hat{s}$)               & $2.758$ \\
+            Coeficiente de variação ($\hat{CV}$)    & $0.177$ \\
+            \bottomrule
+        \end{tabular}
+        \caption{Medidas de dispersão da variável contínua}
+        \label{table:dispersao_continua}
+    \end{table}
+
+    Sumarizamos os dados na \autoref{table:aceleracao}. Foi necessário separar os dados em classes, dado a quantidade elevada de valores únicos.
+
+    \begin{table}[htbp]
+        \centering
+        \begin{tabular}{C{2.5cm}|C{2.5cm}C{2.5cm}|C{2.5cm}C{2.5cm}|C{2.5cm}}
+            \toprule
+            Aceleração & Frequência & Frequência acumulada & Frequência relativa & Frequência relativa acumulada & $Pm_i$ \\
+            \midrule
+            (7.983, 9.68] & 6 & 6 & 0.015075 & 0.015075 & 8.8315 \\
+            (9.68, 11.36] & 15 & 21 & 0.037688 & 0.052764 & 10.5200 \\
+            (11.36, 13.04] & 50 & 71 & 0.125628 & 0.178392 & 12.2000 \\
+            (13.04, 14.72] & 86 & 157 & 0.216080 & 0.394472 & 13.8800 \\
+            (14.72, 16.4] & 101 & 258 & 0.253769 & 0.648241 & 15.5600 \\
+            (16.4, 18.08] & 71 & 329 & 0.178392 & 0.826633 & 17.2400 \\
+            (18.08, 19.76] & 45 & 374 & 0.113065 & 0.939698 & 18.9200 \\
+            (19.76, 21.44] & 13 & 387 & 0.032663 & 0.972362 & 20.6000 \\
+            (21.44, 23.12] & 7 & 394 & 0.017588 & 0.989950 & 22.2800 \\
+            (23.12, 24.8] & 4 & 398 & 0.010050 & 1.000000 & 23.9600 \\
+            \bottomrule
+        \end{tabular}
+        \caption{Aceleração dos carros por intervalos}
+        \label{table:aceleracao}
+    \end{table}
+
+    Com base na \autoref{table:aceleracao}, podemos encontrar novos valores (menos precisos) para as estimativas, vistos na \autoref{table:medidas_tabela_continua}. Apesar de termos menos precisão com os valores da tabela, as diferenças entre os cálculos são da ordem de $1\cdot 10^{-1}$. Considerando que os dados tem uma amplitude de $16.8$, esse erro é bem pequeno.
+
+    \begin{table}[htbp]
+        \centering
+        \begin{tabular}{ccc}
+            \toprule
+            Medidas & Estimativa ($mph^2$) & Módulo da diferença\\
+            \midrule
+            Média & $15.530$ & $0.038$ \\
+            Mediana & $15.419$ & $0.081$ \\
+            Moda & $15.560$ & $0.060$ \\
+            $Q_1$ & $13.597$ & $0.228$ \\
+            $Q_2$ & $15.419$ & $0.081$ \\
+            $Q_3$ & $17.358$ & $0.183$ \\
+            Desvio-padrão & $2.793$ & $0.035$ \\
+            \bottomrule
+        \end{tabular}
+        \caption{Medidas encontradas com os valores da tabela}
+        \label{table:medidas_tabela_continua}
+    \end{table}
+
+    Por fim, sumarizamos visualmente os dados na \autoref{fig:graficos_cont}. Pelo histograma, conseguimos ver a leve assimetria dos dados e o fato de que o valores se concentam na parte central, o que explica o desvio-padrão baixo em comparação à amplitude. O boxplot nos mostra que há 6 outliers e confirma a concentração dos dados no centro, visto que a caixa é pequena em relação à amplitude.
+
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=1\textwidth]{plots_cont.pdf}
+        \caption{Gráficos da variável contínua}
+        \label{fig:graficos_cont}
+    \end{figure}
+
+    
+    \section{Variável discreta}
+
+    \section{Comparação da variabilidade dos dados}
+
     \break
     \printbibliography
 \end{document}
