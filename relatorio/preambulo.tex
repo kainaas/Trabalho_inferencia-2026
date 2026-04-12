@@ -1,0 +1,328 @@
+% █▀█ █▀█ █▀▀ ▄▀█ █▀▄▀█ █▄▄ █   █▀▀
+% █▀▀ █▀▄ ██▄ █▀█ █ ▀ █ █▄█ █▄▄ ██▄
+
+%::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+%                                   CORE SETUP                                   
+%                             Document-Wide Settings                             
+%................................................................................
+\usepackage[
+	a4paper,
+	margin=2cm,
+]{geometry}	% Set page margins
+\usepackage[brazil]{babel}		% Language-specific settings
+\usepackage{csquotes}			% Context-sensitive quoting
+					% 'csquotes' works in tandem with babel
+					% 'csquotes' IS A 'biblatex' DEPENDENCY
+
+%::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+%                               MATH & FONT ENGINE                               
+%................................................................................
+% AMS (American Mathematical Society)
+\usepackage{amsmath}		% AMS's package for mathematical typesetting
+\usepackage{mathtools}		% Extends amsmath's functionalities (i.e.: a superset)
+\usepackage{amsthm}		% AMS's package for creating theorem-like environments
+
+\usepackage{fontspec}		% Interface for using system fonts (OTF/TTF) with Lua/XeLaTeX
+\usepackage[
+	math-style = ISO,
+	bold-style = ISO
+]{unicode-math}	% Must be loaded after 'mathtools'
+
+% Font selection
+\setmainfont{Libertinus Serif}
+\setsansfont{Libertinus Sans}[
+	BoldItalicFont = {Libertinus Sans Italic} % Fallback for missing BI
+]
+\setmonofont{Libertinus Mono}[
+	BoldFont		= {Libertinus Mono},	% Fallback for missing B
+	ItalicFont		= {Libertinus Mono},	% Fallback for missing I
+	BoldItalicFont	= {Libertinus Mono}	% Fallback for missing BI
+]
+\setmathfont{Libertinus Math}
+\setmathfont[range=\mathcal, StylisticSet=1]{XITS Math}	% Libertinus uses a single font for both script and calligraphic text
+\setoperatorfont{\mathsf}	% Sans (without) serif font to distinguish mathematical operators from prose
+%::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+%                                    STYLING                                     
+%                        Alter Visual Appearance of Text                         
+%................................................................................
+\usepackage{microtype}		% Enhance micro-typography (e.g.: protrusion, expansion)
+\usepackage{fancyhdr}		% Custom headers and footers
+\pagestyle{plain}		% header: empty; footer: centered page number
+\usepackage[dvipsnames]{xcolor}	% Access to 68 named colors
+\usepackage{moresize}		% Additional font sizes
+\usepackage{enumerate}		% Customize item style in 'enumerate'
+\usepackage{multicol}		% Environment with multiple columns of text
+\usepackage[normalem]{ulem}	% More underline styles (and aligns bottoms of multiple underlines)
+				% 'normalem' prevents underlines from altering \emph
+\usepackage{appendix}		% Provides an 'appendices' environment for easy formatting
+\usepackage{romannum}		% Adds romam numbers
+
+
+%::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+%                                     FLOATS                                     
+%               Manage Floating Content (e.g.: figures and tables)               
+%................................................................................
+\usepackage{subcaption}	% Format multiple images(tables) in one figure(table) environment
+			% NOTE: This package *automatically* loads the 'caption' package,
+\captionsetup{
+	labelfont = {small,bf},
+	textfont  = {small,it}
+}
+%\subcaptionsetup{...}	% Uncomment to customize sub-captions separately
+
+\usepackage{booktabs}	% Format tables following scientific convention
+\usepackage{float}	% Provides [H] 'Here' float placement specifier (use with caution)
+
+
+%:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+%                                    GRAPHICS                                    
+%                             Generate/Import Images                              
+%.................................................................................
+% NATIVE PROGRAMMATIC DIAGRAMS & PLOTS
+\usepackage{tikz}		% Create vector graphics programmatically
+\usetikzlibrary{arrows.meta}	% Additional arrow styles
+\usepackage{pgfplots}		% Tool for creating function plots and charts
+\pgfplotsset{compat=1.18}	% Enforce version 1.18 for consistency
+
+% EXTERNAL IMAGE MANAGEMENT
+\usepackage{graphicx}		% LaTeX standard for including external image files
+
+
+% █▀▄▀█ ▄▀█ ▀█▀ █ █
+% █ ▀ █ █▀█  █  █▀█
+%:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+%                                 MATH PACKAGES                                  
+%.................................................................................
+% ALGORITHMS
+\usepackage[
+	portuguese,
+	ruled,
+	vlined,
+	linesnumbered
+]{algorithm2e}	% Typeset formal algorithms
+\SetKwInput{KwRequer}{Requer}
+\SetKwInput{KwPrecondicao}{Pré-condição}
+\SetKwInput{KwInicializa}{Inicializa}
+\SetKwFor{Para}{para}{faça}{fim para}
+\SetKwIF{Se}{SenaoSe}{Senao}{se}{então}{senão se}{senão}{fim se}
+\DontPrintSemicolon
+
+% NICHE MATH PACKAGES
+\usepackage{xfrac}	% Slanted fractions (\sfrac)
+\usepackage{cancel}	% Strike-through for symbols (\cancel and \cancelto)
+\usepackage{bbm}	% Shorthand solution for blackboard boldfaced 1 (use \mathbbm{1})
+
+%::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+%                           CUSTOM THEOREM ENVIRONMENTS                            
+%                                   (Color Coded)                                  
+%..................................................................................
+% 1. DEFINE COLOR CODE FOR EACH THEOREM-LIKE ENVIRONMENT (makes change of color choice effortless)
+\colorlet{lmm}{DarkOrchid}	% For lemma env.
+\colorlet{thm}{Tan}		% For theorem env.
+\colorlet{prop}{Maroon}		% For proposition env.
+\colorlet{crl}{RawSienna}	% For corollary env.
+\colorlet{def}{OliveGreen}	% For definition env.
+\colorlet{eg}{RoyalPurple}	% For example env.
+\colorlet{ex}{RoyalPurple}	% For exercise env.
+\colorlet{obs}{MidnightBlue}	% For remark env.
+\colorlet{note}{PineGreen}	% For notation remark env.
+
+%. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+% 2. DEFINE CUSTOM THEOREM STYLES
+% 2.1. STYLE I - TAUTOLOGIES - FIRST NUMBER, THEN NAME
+\newtheoremstyle{number-name}
+{4mm}						% Space above env.
+{4mm}						% Space below env.
+{\itshape}					% Body font
+{}						% Indent amount
+{\bfseries}					% Head font
+{:}						% Punctuation after head
+{.3em}						% Space after head
+{\thmnumber{#2}\,\thmname{#1}\thmnote{ (#3)}}	% Head spec
+
+% 2.2. STYLE II - EXAMPLES & EXERCISES - FIRST NAME, THEN ITALIC NUMBER 
+\newtheoremstyle{name-it_number}
+{4mm}						% Space above env.
+{4mm}						% Space below env.
+{\itshape}					% Body font
+{}						% Indent amount
+{\bfseries}					% Head font
+{}						% Punctuation after head
+{.3em}						% Space after head
+{\thmname{#1}\,{\itshape\thmnumber{#2}}}	% Head spec
+
+% 2.3. STYLE III - REMARKS, SOLUTIONS & PROOFS - NO NUMBERING (should refer to a numbered env.)
+\newtheoremstyle{no_number}
+{4mm}						% Space above env.
+{4mm}						% Space below env.
+{}						% Body font
+{}						% Indent amount
+{\bfseries\itshape}				% Head font
+{.}						% Punctuation after head
+{.3em}						% Space after head
+{}						% Head spec
+
+% 2.4. STYLE IV - NOTATION REMARKS - NO NUMBERING (should refer to a numbered env.) AND ITALIC BODY 
+\newtheoremstyle{no_number-it_body}
+{4mm}						% Space above
+{4mm}						% Space below
+{\itshape}					% Body font
+{}						% Indent amount
+{\bfseries}					% Head font
+{:}						% Punctuation after head
+{.3em}						% Space after head
+{}						% Head spec
+
+%. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+% 3. APPLY THEOREM STYLES AND DEFINE RESPECTIVE ENVIRONMENTS
+% 3.1. STYLE I - TAUTOLOGIES - FIRST NUMBER, THEN NAME
+\theoremstyle{number-name}
+  \newtheorem{lemma}{\color{lmm}Lema}[section]
+  \newtheorem{theorem}{\color{thm}Teorema}[section]
+  \newtheorem{proposition}{\color{prop}Proposição}[section]
+  \newtheorem{corollary}{\color{crl}Corolário}[section]
+  \newtheorem{definition}{\color{def}Definição}[section]
+
+% Manually force counters to share the 'lemma' counter (i.e.: shared counter for style I)
+\makeatletter
+\let\c@theorem\c@lemma
+\let\c@proposition\c@lemma
+\let\c@corollary\c@lemma
+\let\c@definition\c@lemma
+\makeatother
+
+% 3.2. STYLE II - EXAMPLES & EXERCISES - FIRST NAME, THEN ITALIC NUMBER 
+\theoremstyle{name-it_number}
+  \newtheorem{exercise}{\textcolor{ex}{Exercício}}[section]
+  \newtheorem{example}{\textcolor{eg}{Exemplo}}[section]
+
+% Manually force 'example' to use the 'exercise' counter (i.e. shared counter for style II)
+\makeatletter
+\let\c@example\c@exercise
+\makeatother
+
+% 3.3. STYLE III - REMARKS, SOLUTIONS & PROOFS - NO NUMBERING
+\theoremstyle{no_number}
+  % Remark
+  \newtheorem*{observation*}{\color{obs}Observação}
+  % Solution
+  \newtheorem*{solution}{\color{ex}Solução}
+  % Proofs
+  \newtheorem*{proofT}{\color{thm}Demonstração}
+  \newtheorem*{proofL}{\color{lmm}Demonstração}
+  \newtheorem*{proofC}{\color{crl}Demonstração}
+  \newtheorem*{proofP}{\color{prop}Demonstração}
+  \newtheorem*{proofE}{\color{eg}Demonstração}
+  \newtheorem*{proofO}{\color{obs}Demonstração}
+
+% 3.4. STYLE IV - NOTATION REMARKS - NO NUMBERING AND ITALIC BODY 
+\theoremstyle{no_number-it_body}
+  \newtheorem*{notation*}{\color{note}Notação}
+
+%. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+% EXTRA: CUSTOM QED SYMBOL (a small black square)
+\renewcommand\qedsymbol{■}
+
+
+%:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+%                              CUSTOM MATH COMMANDS                               
+%.................................................................................
+\newcommand{\Bvec}[1]{\symbf{#1}}	% Bold symbol vector notation
+
+% CONSTANTS
+\newcommand{\e}{\mathscr{e}}		% Special notation for Euler's number
+\newcommand{\im}{\mathscr{i}\,}		% Special notation for the imaginary unit
+
+% RELATIONS
+\newcommand{\longto}{\longrightarrow}	% Alias to note function domain/codomain (f: A --> B)
+
+% Bellow, a colon-equals (and an analogous equals-colon) sign built 'from scratch', to be more compact and elegant
+\newcommand*{\Defeq}{%
+	\mathrel{%						% Wrapper so TeX treats/interprets the symbol as a relation
+		\vcenter{%					% Vertically center the 'colon' part
+			\baselineskip0.5ex%			% Manually set the vertical spacing between the dots
+			\lineskiplimit0pt%			% Disable TeX's 'anti-collision' rule for full control
+			\hbox{\scriptsize.}%			% The top dot
+			\hbox{\scriptsize.}%			% The bottom dot
+		}%
+		{=}%						% The equals sign
+	}%
+}					% Compact colon-equals
+\newcommand*{\Eqdef}{%
+	\mathrel{%						% Wrapper so TeX treats/interprets the symbol as a relation
+		{=}%						% The equals sign
+		\vcenter{%					% Vertically center the 'colon' part
+			\baselineskip0.5ex%			% Manually set the vertical spacing between the dots
+			\lineskiplimit0pt%			% Disable TeX's 'anti-collision' rule for full control
+			\hbox{\scriptsize.}%			% The top dot
+			\hbox{\scriptsize.}%			% The bottom dot
+		}%
+	}%
+}					% Compact equals-colon
+\newcommand{\subnormal}{\triangleleft}	% Normal subgroup (left)
+\newcommand{\supnormal}{\triangleright}	% Normal subgroup (right)
+
+% UNARY OPERATIONS
+\newcommand{\T}{{\mathsfup{T}}}				% Transpose symbol
+\newcommand{\Tp}[1]{{#1}^{\mathsfup{T}}}	% Transpose operation
+
+% LOGIC
+\newcommand{\limplies}{\rightarrow}	% Conditional connector
+\newcommand{\liff}{\leftrightarrow}	% Biconditional connector
+\newcommand{\nand}{\uparrow}		% NAND connector
+\newcommand{\nor}{\downarrow}		% NOR connector
+\newcommand{\xor}{\veebar}		% XOR connector
+
+
+% LOADED LAST TO AVOID DEPENDENCY ERRORS
+%:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+%                                  BIBLIOGRAPHY                                   
+%                                Manage References                                
+%.................................................................................
+\usepackage[
+	backend=biber,	% Use Biber backend (more powerful than BibTex)
+	style=ieee,
+	backref=true
+]{biblatex}
+
+
+%:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+%                                  FINALIZATION                                   
+%                 Packages That Patch Others. MUST BE LOADED LAST                 
+%.................................................................................
+\usepackage{hyperref}		% Add hyperlinks to references, ToC and URLs
+\hypersetup{
+	plainpages=false,	% Try to prevent duplicate page anchors
+	colorlinks=true,	% true: colored links; false: boxed links
+	linkcolor=NavyBlue,	% Internal links
+	citecolor=NavyBlue,
+	urlcolor=NavyBlue,
+	breaklinks=true,
+	pdfborder={0 0 0}
+}
+
+\usepackage[
+	brazilian,
+	nameinlink
+]{cleveref}			% Objectively better than \autoref
+% DEFINE 'cleveref' NAMES FOR CUSTOM THEOREM-LIKE ENVIRONMENTS
+	% STYLE I ENVIRONMENTS
+\crefname{lemma}{lema}{lemas}
+\Crefname{lemma}{Lema}{Lemas}
+\crefname{theorem}{teorema}{teoremas}
+\Crefname{theorem}{Teorema}{Teoremas}
+\crefname{proposition}{proposição}{proposições}
+\Crefname{proposition}{Proposição}{Proposições}
+\crefname{corollary}{corolário}{corolários}
+\Crefname{corollary}{Corolário}{Corolários}
+\crefname{definition}{definição}{definições}
+\Crefname{definition}{Definição}{Definições}
+	% STYLE II ENVIRONMENTS
+\crefname{exercise}{exercício}{exercícios}
+\Crefname{exercise}{Exercício}{Exercícios}
+\crefname{example}{exemplo}{exemplos}
+\Crefname{example}{Exemplo}{Exemplos}
+
+\newcommand{\customref}[2]{%	% Simple alias for custom link text
+	\hyperref[#2]{#1}%
+}

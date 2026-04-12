@@ -1,9 +1,9 @@
-\begin{tabular}{llr}
+\begin{tabular}{lrr}
 \toprule
- & origin & frequency \\
+origin & frequency & cumulative frequency \\
 \midrule
-0 & usa & 249 \\
-1 & japan & 79 \\
-2 & europe & 70 \\
+usa & 249 & 249 \\
+japan & 79 & 328 \\
+europe & 70 & 398 \\
 \bottomrule
 \end{tabular}

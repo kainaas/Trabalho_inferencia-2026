@@ -43,4 +43,9 @@ for bar in bars:
 fig.savefig(plot_quali)
 #plt.show()
 
-origin.to_latex(table_quali)
+
+#Table
+freq_cumsum = origin['frequency'].cumsum().reset_index()
+freq_cumsum.columns = ['index', 'cumulative frequency']
+table = pd.merge(origin, freq_cumsum['cumulative frequency'], left_index = True, right_index = True)
+table.to_latex(table_quali, index=False)

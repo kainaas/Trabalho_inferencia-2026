@@ -1,0 +1,62 @@
+% !TeX root = ./FAN-T2-relatorio.tex
+\documentclass[brazil, a4paper, 12pt]{article}
+
+\input{preambulo.tex}
+
+\addbibresource{bib-relatorio.bib}
+\graphicspath{ {../plots/} }
+
+\title{Estatística descritiva sobre um conjunto de dados}
+\author{Kainã Alves Tureso - 15466391\\
+        Pedro Luís Anghievisck - 15656521}
+\date{\today}
+
+\begin{document}
+    \maketitle
+    \tableofcontents
+    \break
+
+    \section{Dados}
+    Os dados foram retirados de \cite{cars_data}, mas estavam originalmente no repositório \textit{StatLib}, mantido pela Universidade Carnegie Mellon. Esse conjunto foi utilizado na exposição de 1983 da Associação Americana de Estatística. Nele, se encontram informações (como número de cilindros, potência, aceleração, peso, etc.) sobre modelos de carros das décadas de 70 e 80 que foram produzidos no Japão, Europa e Estados Unidos.
+
+    Para esse estudo foram selecionadas as seguintes variáveis:
+    \begin{itemize}
+        \item \textbf{Qualitativa:} local de produção;
+        \item \textbf{Quantitativa contínua:} aceleração;
+        \item \textbf{Quantitativa discreta:} número de cilindros do motor.
+    \end{itemize}
+
+    A amostra continha $n=398$ observações, todas sem nenhuma variável sem valor.
+
+    \section{Variável qualitativa}
+    Como citado anteriormente, a variável "local de produção" possui três valores únicos diferente, sendo eles "usa", "japan" e "europe". Ao organizar os dados, a seguinte tabela foi montada:
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{ccc}
+            \toprule
+            origem & frequência & frequência acumulada \\
+            \midrule
+            EUA & 249 & 249 \\
+            Japão & 79 & 328 \\
+            Europa & 70 & 398 \\
+            \bottomrule
+        \end{tabular}
+
+        \caption{Local de produção dos carros}
+        \label{table:local_producao}
+    \end{table}
+
+    Com isso, podemos construir gráficos da \autoref{fig:graficos_quali} que representem esses dados. O gráfico de setores representa a frequência relativa e o gráfico de barras nos dá uma vizualização da frequência absoluta dos dados.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{plots_quali}
+        \caption{Vizualização das frequências das origens}
+        \label{fig:graficos_quali}
+    \end{figure}
+
+    Fica claro a discrepância entre a produção de carros nos EUA e nos outros dois locais (pelo menos para os modelos estudados), com o país americano tendo $62,6\%$ da produção. Em relação as outras origens dos carros do estudo, elas possuem frequências similares, algo peculiar, visto que a Europa é um continente e o Japão um país.
+
+    \section{Variável contínua}
+    \break
+    \printbibliography
+\end{document}
