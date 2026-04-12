@@ -46,18 +46,18 @@
         \label{table:local_producao}
     \end{table}
 
-    Com isso, podemos construir gráficos da \autoref{fig:graficos_quali} que representem esses dados. O gráfico de setores representa a frequência relativa e o gráfico de barras nos dá uma vizualização da frequência absoluta dos dados.
+    Com isso, podemos construir gráficos da \autoref{fig:graficos_quali} que representem esses dados. O gráfico de setores representa a frequência relativa e o gráfico de barras nos dá uma visualização da frequência absoluta dos dados.
     \begin{figure}[H]
         \centering
         \includegraphics[width=1\textwidth]{plots_quali}
-        \caption{Vizualização das frequências das origens}
+        \caption{Visualização das frequências das origens}
         \label{fig:graficos_quali}
     \end{figure}
 
-    Fica claro a discrepância entre a produção de carros nos EUA e nos outros dois locais (pelo menos para os modelos estudados), com o país americano tendo $62.6\%$ da produção. Em relação as outras origens dos carros do estudo, elas possuem frequências similares, algo peculiar, visto que a Europa é um continente e o Japão um país.
+    Fica clara a discrepância entre a produção de carros nos EUA e nos outros dois locais (pelo menos para os modelos estudados), com o país americano tendo $62.6\%$ da produção. Em relação às outras origens dos carros do estudo, elas possuem frequências similares, algo peculiar, visto que a Europa é um continente e o Japão um país.
 
     \section{Variável contínua}
-    Para a variável contínua, foi escolhida a aceleração dos carros, medidas em milhas por segundo ao quadrado ($mph^2$). Essa medida é obtida fazendo o carro sair do repouso e chegar até $60mph$ e cronometrando o tempo gasto.
+    Para a variável contínua, foi escolhida a aceleração dos carros, medida em milhas por segundo ao quadrado ($mph^2$). Essa medida é obtida fazendo o carro sair do repouso e chegar até $60mph$ e cronometrando o tempo gasto.
     
     Ao observar o rol dessa variável, pode-se encontrar valores entre aproximadamente $5mph^2$ e $25mph^2$. Além disso, obtemos as seguintes estimativas para as medidas de tendência central, sumarizadas na \autoref{table:tendencia_cental_continua}:
     \begin{table}[htbp]
@@ -75,16 +75,16 @@
         \label{table:tendencia_cental_continua}
     \end{table}
 
-    Como temos que $\hat{\mu} > \hat{Me} > \hat{Mo}$, verificamos uma assimetria à direita, ou seja, a cauda do lado direito é mais alongada. Note que essa assimetria é bem leve, dado que a diferença entre média e mediana é da casa de $1\cdot 10^{-1}$ e a moda também não está muito longe
+    Como temos que $\hat{\mu} > \hat{Me} > \hat{Mo}$, verificamos uma assimetria à direita, ou seja, a cauda do lado direito é mais alongada. Note que essa assimetria é bem leve, dado que a diferença entre média e mediana é da casa de $1\cdot 10^{-1}$ e a moda também não está muito longe.
 
-    Em relação aos quartis, obtemos os seguinte valores: $Q_1 = 13.825$, $Q_2 = 15.500$, $Q_3 = 17.175$. logo, metade das acelerações se encontram no intervalo $[13.825, 17.175]$. Os carros fora desse intervalo ou possuem uma aceleração relativamente alta, ou baixa.
+    Em relação aos quartis, obtemos os seguinte valores: $Q_1 = 13.825$, $Q_2 = 15.500$, $Q_3 = 17.175$. Logo, metade das acelerações se encontram no intervalo $[13.825, 17.175]$. Os carros fora desse intervalo ou possuem uma aceleração relativamente alta, ou baixa.
 
     Com relação às medidas de dispersão, temos a \autoref{table:dispersao_continua}.
     \begin{table}[htbp]
         \centering
         \begin{tabular}{cc}
             \toprule
-            Medidada de dispersão                   & Estimativa ($mph^2$)\\
+            Medida de dispersão                   & Estimativa ($mph^2$)\\
             \midrule
             Amplitude ($\hat{A}$)                   & $16.800$ \\
             Amplitude interquartílica ($\hat{d_Q}$) & $3.350$ \\
@@ -96,7 +96,7 @@
         \label{table:dispersao_continua}
     \end{table}
 
-    Sumarizamos os dados na \autoref{table:aceleracao}. Foi necessário separar os dados em classes, dado a quantidade elevada de valores únicos.
+    Sumarizamos os dados na \autoref{table:aceleracao}. Foi necessário separar os dados em classes, dada a quantidade elevada de valores únicos.
 
     \begin{table}[htbp]
         \centering
@@ -120,7 +120,7 @@
         \label{table:aceleracao}
     \end{table}
 
-    Com base na \autoref{table:aceleracao}, podemos encontrar novos valores (menos precisos) para as estimativas, vistos na \autoref{table:medidas_tabela_continua}. Apesar de termos menos precisão com os valores da tabela, as diferenças entre os cálculos são da ordem de $1\cdot 10^{-1}$. Considerando que os dados tem uma amplitude de $16.8$, esse erro é bem pequeno.
+    Com base na \autoref{table:aceleracao}, podemos encontrar novos valores (menos precisos) para as estimativas, vistos na \autoref{table:medidas_tabela_continua}. Apesar de termos menos precisão com os valores da tabela, as diferenças entre os cálculos são da ordem de $1\cdot 10^{-1}$. Considerando que os dados têm uma amplitude de $16.8$, esse erro é bem pequeno.
 
     \begin{table}[htbp]
         \centering
@@ -141,7 +141,7 @@
         \label{table:medidas_tabela_continua}
     \end{table}
 
-    Por fim, sumarizamos visualmente os dados na \autoref{fig:graficos_cont}. Pelo histograma, conseguimos ver a leve assimetria dos dados e o fato de que o valores se concentam na parte central, o que explica o desvio-padrão baixo em comparação à amplitude. O boxplot nos mostra que há 6 outliers e confirma a concentração dos dados no centro, visto que a caixa é pequena em relação à amplitude.
+    Por fim, sumarizamos visualmente os dados na \autoref{fig:graficos_cont}. Pelo histograma, conseguimos ver a leve assimetria dos dados e o fato de que o valores se concentram na parte central, o que explica o desvio-padrão baixo em comparação à amplitude. O boxplot nos mostra que há 6 outliers e confirma a concentração dos dados no centro, visto que a caixa é pequena em relação à amplitude.
 
     \begin{figure}[htbp]
         \centering
@@ -150,10 +150,81 @@
         \label{fig:graficos_cont}
     \end{figure}
 
-    
+
     \section{Variável discreta}
+    Para a variável discreta, foi analisada a quantidade de cilindros dos carros. Note que essa variável assume poucos valores únicos, que estão próximos (os motores observados possuem de 3 a 8 cilindros). Isso gera um comportamento um tanto quanto peculiar nas análises.
+
+    Podemos observar as medidas de tendência central na \autoref{table:tendencia_cental_discreta}.
+    \begin{table}[htbp]
+        \centering
+        \begin{tabular}{cc}
+            \toprule
+            Medida de tendência central & Estimativa\\
+            \midrule
+            Média ($\hat{\mu}$)         & $5.455$ \\
+            Mediana ($\hat{Me}$)        & $4$ \\
+            Moda ($\hat{Mo}$)           & $4.000$ \\
+            \bottomrule
+        \end{tabular}
+        \caption{Medidas de tendência central da variável discreta}
+        \label{table:tendencia_cental_discreta}
+    \end{table}
+
+    Para os quartis, obtemos: $Q_1 = Q_2 = 4$ e $Q_3 = 8$. Porém, a maior observação é 8. Os quartis aqui perdem um pouco da semântica de "metade dos dados estão entre o primeiro e terceiro quartil". O que ocorre nesse caso é que pelo menos $75\%$ das observações estão entre 4 e 8 cilindros. Além disso, como $Q_1 = Q_2 = 4$, vemos uma dominância muito grande (pelo menos $25\%$ dos carros) de motores com 4 cilindros.
+
+    Com relação à simetria, vemos que $\hat \mu > \hat{Me} = \hat{Mo}$, o que indica assimetria à direita. Em proporção aos dados, a média é bem maior que a mediana, então a cauda à direita possui muitas observações.
+
+    Sobre as medidas de dispersão, construímos a \autoref{table:dispersao_discreta}.
+
+    \begin{table}[htbp]
+        \centering
+        \begin{tabular}{cc}
+            \toprule
+            Medida de dispersão                   & Estimativa \\
+            \midrule
+            Amplitude ($\hat{A}$)                   & $5$ \\
+            Amplitude interquartílica ($\hat{d_Q}$) & $4$ \\
+            Desvio-padrão ($\hat{s}$)               & $1.701$ \\
+            Coeficiente de variação ($\hat{CV}$)    & $0.312$ \\
+            \bottomrule
+        \end{tabular}
+        \caption{Medidas de dispersão da variável discreta}
+        \label{table:dispersao_discreta}
+    \end{table}
+
+    Sumarizamos os dados na \autoref{table:cilindros}. Como são poucos valores únicos diferentes, não é preciso criar classes para agrupar as observações.
+
+    \begin{table}
+        \centering
+        \begin{tabular}{C{2.5cm}|C{2.5cm}C{2.5cm}|C{2.5cm}C{2.5cm}}
+            \toprule
+            Número de cilindros & Frequência & Frequência acumulada & Frequência relativa & Frequência relativa acumulada \\
+            \midrule
+            3 & 4 & 4 & 0.010050 & 0.010050 \\
+            4 & 204 & 208 & 0.512563 & 0.522613 \\
+            5 & 3 & 211 & 0.007538 & 0.530151 \\
+            6 & 84 & 295 & 0.211055 & 0.741206 \\
+            8 & 103 & 398 & 0.258794 & 1.000000 \\
+            \bottomrule
+        \end{tabular}
+
+        \caption{Número de cilindros}
+        \label{table:cilindros}
+    \end{table}
+
+    Por fim, temos o gráfico na \autoref{fig:graficos_disc}. Vemos o comportamento esperado pela análise feita anteriormente. O histograma mostra muitas observações para 4 cilindros e uma cauda à direita. O boxplot mostra que a maioria das observações estão no intervalo interquartílico e o peculiar comportamento de $Q_1 = Q_2$ é visto com a mediana sendo o limite inferior da caixa.
+
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=1\textwidth]{plots_disc.pdf}
+        \caption{Gráficos da variável discreta}
+        \label{fig:graficos_disc}
+    \end{figure}
+
 
     \section{Comparação da variabilidade dos dados}
+    Para comparar a variabilidade da variável discreta e da variável contínua, podemos usar o coeficiente de variação ($\hat{CV}$), pois é uma medida adimensional. Os valores calculados foram $0.177$ e $0.312$ para a contínua e discreta respectivamente. Isso indica que os \textbf{dados sobre a quantidade de cilindros tem maior variabilidade}. Isso pode ser confirmado visualmente, com o boxplot da aceleração tendo uma caixa menor em relação à amplitude e seu histograma possuindo uma concentração no centro. Enquanto isso, para a variável discreta, apesar de uma concentração de observações em 4, vemos muitos valores em 6 e 8 cilindros. Além disso, a caixa do boxplot engloba quase todas as observações.
+
 
     \break
     \printbibliography
