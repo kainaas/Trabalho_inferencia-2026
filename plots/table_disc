@@ -1,11 +1,11 @@
-\begin{tabular}{lrrr}
+\begin{tabular}{rrrrr}
 \toprule
- & cylinders & frequency & cumulative frequency \\
+cylinders & frequency & cumulative frequency & relative frequency & relative cumulative frequency \\
 \midrule
-0 & 3 & 4 & 4 \\
-1 & 4 & 204 & 208 \\
-2 & 5 & 3 & 211 \\
-3 & 6 & 84 & 295 \\
-4 & 8 & 103 & 398 \\
+3 & 4 & 4 & 0.010050 & 0.010050 \\
+4 & 204 & 208 & 0.512563 & 0.522613 \\
+5 & 3 & 211 & 0.007538 & 0.530151 \\
+6 & 84 & 295 & 0.211055 & 0.741206 \\
+8 & 103 & 398 & 0.258794 & 1.000000 \\
 \bottomrule
 \end{tabular}

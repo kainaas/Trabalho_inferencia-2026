@@ -66,8 +66,20 @@ freqs_table.columns = ['cylinders', 'frequency']
 freq_cumsum = freqs_table['frequency'].cumsum().reset_index()
 freq_cumsum.columns = ['index', 'cumulative frequency']
 
+freqs_np = freqs_table['frequency'].to_numpy()
+
+freq_cumsum_np = freq_cumsum.to_numpy()[:,1]
+
+freqs_relative = pd.DataFrame(freqs_np/n)
+freqs_relative.columns = ['relative frequency']
+
+freqs_relative_cumsum = pd.DataFrame(freq_cumsum_np/n)
+freqs_relative_cumsum.columns = ['relative cumulative frequency']
+
 freqs_table = pd.merge(freqs_table, freq_cumsum['cumulative frequency'], left_index = True, right_index = True)
-freqs_table.to_latex(table_disc) #TODO: first index needs to be deleted
+freqs_table = pd.merge(freqs_table, freqs_relative, left_index = True, right_index = True)
+freqs_table = pd.merge(freqs_table, freqs_relative_cumsum, left_index = True, right_index = True)
+freqs_table.to_latex(table_disc, index=False)
 print('==========================================')
 
 

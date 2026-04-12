@@ -82,17 +82,34 @@ freqs_table.columns = ['acceleration', 'frequency']
 freq_cumsum = freqs_table['frequency'].cumsum().reset_index()
 freq_cumsum.columns = ['index', 'cumulative frequency']
 
-freqs_table = pd.merge(freqs_table, freq_cumsum['cumulative frequency'], left_index = True, right_index = True)
-freqs_table.to_latex(table_cont) #TODO: first index needs to be deleted
-
-
-#f)%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 classes_np = freqs_table['acceleration'].to_numpy()
 freqs_np = freqs_table['frequency'].to_numpy()
+
+freq_cumsum_np = freq_cumsum.to_numpy()[:,1]
+
+
+freqs_relative = pd.DataFrame(freqs_np/n)
+freqs_relative.columns = ['relative frequency']
+
+freqs_relative_cumsum = pd.DataFrame(freq_cumsum_np/n)
+freqs_relative_cumsum.columns = ['relative cumulative frequency']
 
 Pm = np.zeros(k) #mean points of the classes
 for i in range(len(classes_np)): #calculate the mean points
     Pm[i] = (classes_np[i].right + classes_np[i].left)/2
+
+Pm_table = pd.DataFrame(Pm)
+Pm_table.columns = ['Pm']
+
+freqs_table = pd.merge(freqs_table, freq_cumsum['cumulative frequency'], left_index = True, right_index = True)
+freqs_table = pd.merge(freqs_table, freqs_relative, left_index = True, right_index = True)
+freqs_table = pd.merge(freqs_table, freqs_relative_cumsum, left_index = True, right_index = True)
+freqs_table = pd.merge(freqs_table, Pm_table, left_index = True, right_index = True)
+freqs_table.to_latex(table_cont, index=False)
+
+
+
+#f)%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Ac = np.zeros(k) #classes amplitude
 for i in range(len(classes_np)): #calculate the mean points
@@ -102,7 +119,6 @@ LI = np.zeros(k) #Class inferior limit
 for i in range(len(classes_np)): #calculate the mean points
     LI[i] = classes_np[i].left
 
-freq_cumsum_np = freq_cumsum.to_numpy()[:,1]
 
 
 mean_table = (np.array([(Pm[i]*freqs_np[i]) for i in range(k)]).sum())/n

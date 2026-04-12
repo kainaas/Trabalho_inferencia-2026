@@ -1,9 +1,9 @@
-\begin{tabular}{lrr}
+\begin{tabular}{lrrrr}
 \toprule
-origin & frequency & cumulative frequency \\
+origin & frequency & cumulative frequency & relative frequency & relative cumulative frequency \\
 \midrule
-usa & 249 & 249 \\
-japan & 79 & 328 \\
-europe & 70 & 398 \\
+usa & 249 & 249 & 0.625628 & 0.625628 \\
+japan & 79 & 328 & 0.198492 & 0.824121 \\
+europe & 70 & 398 & 0.175879 & 1.000000 \\
 \bottomrule
 \end{tabular}

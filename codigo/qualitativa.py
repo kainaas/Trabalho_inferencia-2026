@@ -12,8 +12,9 @@ df = pd.read_csv(file_in)
 #Treating the qualitative data "origin", which has the origin of the studied penguins
 origin = df['origin'].value_counts().reset_index()
 origin.columns = ['origin', 'frequency']
-print(origin)
 
+#number of observations
+n = origin['frequency'].sum()
 
 #Plots for the qualitative variable
 fig, axs = plt.subplots(1, 2, figsize=(12, 5))
@@ -47,5 +48,19 @@ fig.savefig(plot_quali)
 #Table
 freq_cumsum = origin['frequency'].cumsum().reset_index()
 freq_cumsum.columns = ['index', 'cumulative frequency']
+
+freqs_np = origin['frequency'].to_numpy()
+
+freq_cumsum_np = freq_cumsum.to_numpy()[:,1]
+
+freqs_relative = pd.DataFrame(freqs_np/n)
+freqs_relative.columns = ['relative frequency']
+
+freqs_relative_cumsum = pd.DataFrame(freq_cumsum_np/n)
+freqs_relative_cumsum.columns = ['relative cumulative frequency']
+
+
 table = pd.merge(origin, freq_cumsum['cumulative frequency'], left_index = True, right_index = True)
+table = pd.merge(table, freqs_relative, left_index = True, right_index = True)
+table = pd.merge(table, freqs_relative_cumsum, left_index = True, right_index = True)
 table.to_latex(table_quali, index=False)
