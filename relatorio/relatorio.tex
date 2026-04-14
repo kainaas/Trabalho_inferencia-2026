@@ -95,14 +95,14 @@
         \caption{Medidas de dispersão da variável contínua}
         \label{table:dispersao_continua}
     \end{table}
-
+    \newpage
     Sumarizamos os dados na \autoref{table:aceleracao}. Foi necessário separar os dados em classes, dada a quantidade elevada de valores únicos.
 
     \begin{table}[htbp]
         \centering
         \begin{tabular}{C{2.5cm}|C{2.5cm}C{2.5cm}|C{2.5cm}C{2.5cm}|C{2.5cm}}
             \toprule
-            Aceleração & Frequência & Frequência acumulada & Frequência relativa & Frequência relativa acumulada & $Pm_i$ \\
+            Aceleração & Frequência & Frequência acumulada & Frequência relativa & Frequência relativa acumulada & Ponto Médio do Intervalo \\
             \midrule
             (7.983, 9.68] & 6 & 6 & 0.015075 & 0.015075 & 8.8315 \\
             (9.68, 11.36] & 15 & 21 & 0.037688 & 0.052764 & 10.5200 \\
@@ -143,7 +143,7 @@
 
     Por fim, sumarizamos visualmente os dados na \autoref{fig:graficos_cont}. Pelo histograma, conseguimos ver a leve assimetria dos dados e o fato de que o valores se concentram na parte central, o que explica o desvio-padrão baixo em comparação à amplitude. O boxplot nos mostra que há 6 outliers e confirma a concentração dos dados no centro, visto que a caixa é pequena em relação à amplitude.
 
-    \begin{figure}[htbp]
+    \begin{figure}[H]
         \centering
         \includegraphics[width=1\textwidth]{plots_cont.pdf}
         \caption{Gráficos da variável contínua}
@@ -162,7 +162,7 @@
             Medida de tendência central & Estimativa\\
             \midrule
             Média ($\hat{\mu}$)         & $5.455$ \\
-            Mediana ($\hat{Me}$)        & $4$ \\
+            Mediana ($\hat{Me}$)        & $4.000$ \\
             Moda ($\hat{Mo}$)           & $4.000$ \\
             \bottomrule
         \end{tabular}
@@ -191,10 +191,11 @@
         \caption{Medidas de dispersão da variável discreta}
         \label{table:dispersao_discreta}
     \end{table}
+    \newpage
 
     Sumarizamos os dados na \autoref{table:cilindros}. Como são poucos valores únicos diferentes, não é preciso criar classes para agrupar as observações.
 
-    \begin{table}
+    \begin{table}[htbp]
         \centering
         \begin{tabular}{C{2.5cm}|C{2.5cm}C{2.5cm}|C{2.5cm}C{2.5cm}}
             \toprule
@@ -207,7 +208,6 @@
             8 & 103 & 398 & 0.258794 & 1.000000 \\
             \bottomrule
         \end{tabular}
-
         \caption{Número de cilindros}
         \label{table:cilindros}
     \end{table}
