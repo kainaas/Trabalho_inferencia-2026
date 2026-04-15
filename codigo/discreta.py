@@ -90,9 +90,9 @@ fig, axs = plt.subplots(1, 2, figsize=(12, 5))
 
 fig.suptitle(r'Número de cilindros nos motores dos carros produzidos', fontsize=14)
 
-#histogram
-axs[0].hist(disc)
-axs[0].set_title('Histograma')
+#bar
+axs[0].bar(freqs_table['cylinders'], freqs_table['frequency'])
+axs[0].set_title('Gráfico de Barras')
 
 #boxplot
 axs[1].boxplot(disc)
