@@ -1,0 +1,103 @@
+\documentclass[brazil, a4paper, 12pt]{article}
+
+\input{preambulo.tex}
+
+\addbibresource{bib-relatorio.bib}
+\graphicspath{ {../imgs/} }
+
+\title{Trabalho Prático - Inferência Bayesiana}
+\author{Kainã Alves Tureso - 15466391\\
+        Pedro Luís Anghievisck - 15656521}
+\date{\today}
+
+\begin{document}
+
+    \maketitle
+    \tableofcontents
+    \newpage
+
+\section{Introdução}
+O presente relatório apresenta a análise bayesiana do número diário de chamados técnicos recebidos por uma empresa de tecnologia. A variável aleatória $Y_i$, que representa o número de chamados no dia $i$, segue uma distribuição de Poisson com parâmetro $\lambda$, isto é, $Y_i \sim Poisson(\lambda)$.
+
+Foram observados os dados referentes a um período de 60 dias (Amostra 15), obtendo-se:
+\begin{itemize}
+    \item Tamanho da amostra ($n$): 60
+    \item Soma das observações ($\sum_{i=1}^{60} y_i$): 744
+    \item Média amostral ($\bar{y}$): 12,4 chamados/dia
+\end{itemize}
+
+\section{Resoluções}
+
+\subsection{a) Análise a Priori}
+A distribuição a priori para $\lambda$ é dada por $\lambda \sim Gama(\alpha, \beta)$. O valor esperado e a variância de uma distribuição Gama com essa parametrização são dados, respectivamente, por $E[\lambda] = \frac{\alpha}{\beta}$ e $Var[\lambda] = \frac{\alpha}{\beta^2}$.
+
+Avaliando as duas escolhas de hiperparâmetros:
+\begin{itemize}
+    \item \textbf{Priori 1 ($\alpha=6, \beta=0,5$):}
+    $$E[\lambda] = \frac{6}{0,5} = 12$$
+    $$Var[\lambda] = \frac{6}{0,5^2} = 24$$
+    
+    \item \textbf{Priori 2 ($\alpha=12, \beta=1$):}
+    $$E[\lambda] = \frac{12}{1} = 12$$
+    $$Var[\lambda] = \frac{12}{1^2} = 12$$
+\end{itemize}
+
+\textbf{Interpretação:} Ambas as prioris possuem a mesma média de 12 chamados por dia, o que reflete a informação prévia da empresa sobre o comportamento do sistema. A diferença reside na variância: a Priori 1 possui variância dupla em relação à Priori 2, indicando uma maior incerteza ou menor grau de confiança na informação inicial.
+
+\subsection{b) Função de Verossimilhança e Posteriori}
+A função de verossimilhança para a amostra de uma Poisson é o produto das densidades individuais:
+$$L(\lambda | \mathbf{y}) = \prod_{i=1}^{n} \frac{e^{-\lambda} \lambda^{y_i}}{y_i!} \propto e^{-n\lambda} \lambda^{\sum_{i=1}^{n} y_i}$$
+
+Pelo Teorema de Bayes, a distribuição a posteriori é proporcional ao produto da função de verossimilhança pela distribuição a priori:
+$$\pi(\lambda | \mathbf{y}) \propto L(\lambda | \mathbf{y}) \pi(\lambda)$$
+$$\pi(\lambda | \mathbf{y}) \propto \left( e^{-n\lambda} \lambda^{\sum y_i} \right) \left( \lambda^{\alpha-1} e^{-\beta\lambda} \right)$$
+$$\pi(\lambda | \mathbf{y}) \propto \lambda^{\sum y_i + \alpha - 1} e^{-\lambda(n+\beta)}$$
+
+O núcleo resultante tem a mesma forma funcional da distribuição Gama. Portanto, a distribuição a posteriori pertence à família Gama, caracterizando a propriedade de priori conjugada:
+$$\lambda | \mathbf{y} \sim Gama\left(\sum_{i=1}^{n} y_i + \alpha, \; n + \beta\right)$$
+
+Substituindo os valores da nossa amostra ($n=60$ e $\sum y_i = 744$), obtemos as distribuições a posteriori para cada priori:
+\begin{itemize}
+    \item \textbf{Posteriori 1:} $\lambda | \mathbf{y} \sim Gama(744 + 6, \; 60 + 0,5) \Rightarrow Gama(750, \; 60,5)$
+    \item \textbf{Posteriori 2:} $\lambda | \mathbf{y} \sim Gama(744 + 12, \; 60 + 1) \Rightarrow Gama(756, \; 61)$
+\end{itemize}
+
+\subsection{c) Estimativas a Posteriori}
+A estimativa pontual bayesiana sob perda quadrática é a média da distribuição a posteriori, dada por $\hat{\lambda}_B = \frac{\sum y_i + \alpha}{n + \beta}$:
+
+\begin{itemize}
+    \item \textbf{Estimativa para Priori 1:} $\hat{\lambda}_{B1} = \frac{750}{60,5} \approx 12,3967$
+    \item \textbf{Estimativa para Priori 2:} $\hat{\lambda}_{B2} = \frac{756}{61} \approx 12,3934$
+\end{itemize}
+
+\subsection{d) Análise Gráfica}
+% DICA: Exporte as imagens geradas pelo Python e salve na mesma pasta do seu arquivo .tex com os nomes "grafico_prioris.png" e "grafico_posteriori.png".
+Os gráficos abaixo ilustram o comportamento das distribuições.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{grafico_prioris.png}
+    \caption*{Distribuições a Priori}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{grafico_posteriori.png}
+    \caption*{Comparação entre as Prioris e as respectivas Posterioris}
+\end{figure}
+
+\subsection{e) Comparação das Médias}
+\begin{itemize}
+    \item \textbf{Média a Priori:} 12,0
+    \item \textbf{Média Amostral:} 12,4
+    \item \textbf{Média a Posteriori 1:} 12,3967
+    \item \textbf{Média a Posteriori 2:} 12,3934
+\end{itemize}
+\textbf{Discussão:} Verifica-se que as estimativas a posteriori convergiram para valores extremamente próximos à média amostral. Como o tamanho da amostra é relativamente grande ($n=60$), a função de verossimilhança apresenta forte dominância sobre a distribuição a priori. Assim, a informação proveniente dos dados observados corrige expressivamente a crença inicial, deslocando a estimativa de 12 para perto de 12,4.
+
+\subsection{f) Impacto dos Hiperparâmetros}
+O impacto da escolha dos hiperparâmetros é evidenciado quando analisamos as variâncias a priori. A Priori 1, por apresentar maior variância (24), é considerada menos informativa, sendo mais facilmente influenciada pelos dados. Consequentemente, sua estimativa a posteriori (12,3967) foi "puxada" um pouco mais na direção da média amostral.
+
+A Priori 2, possuindo menor variância (12), representa uma crença inicial mais firme. Isso fez com que sua estimativa a posteriori (12,3934) ficasse ligeiramente mais retida ao redor do valor prévio (12). Contudo, devido ao robusto volume de dados observados, em ambos os casos a incerteza final foi drasticamente reduzida, resultando em curvas a posteriori com variâncias muito baixas (altamente concentradas) e praticamente sobrepostas.
+
+\end{document}
